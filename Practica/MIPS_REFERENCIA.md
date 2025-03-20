@@ -1,4 +1,6 @@
 
+(creado por danii47 : https://github.com/Danii47/FCOM )
+
 # HOJA DE REFERENCIA MIPS
 
 ## Indice
