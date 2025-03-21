@@ -443,5 +443,72 @@
 >while (a == b) {
 >    // Código si a == b
 >}
+>// Continuación del código
 >```
 >En MIPS se haría de la siguiente forma
+> ```
+> Loop:
+>   beq $t1, $t2, End  # Si $t1 == $t2, salta a End
+>
+>   # Código si $t1 == $t2
+>   j Loop
+>
+> End:
+>   # Continuación del código
+> ```
+
+### For 
+> [!REMINDER]
+>Recordemos que un bucle for en Java se puede representar como un bucle while.
+>Por ejemplo, el siguiente bucle for en Java:
+>```java
+>for (int i = 0; i < 10; i++) {
+>    // Código
+>}
+>// Continuación del código
+>```
+>Se puede representar como el siguiente bucle while en Java:
+>```java
+>int i = 0;
+>while (i < 10) {
+>    // Código
+>    i++;
+>}
+>// Continuación del código
+>```
+
+> [!NOTE]
+>Si se quiere hacer un for como el siguiente en Java
+>```java
+>for (int i = 0; i < 10; i++) {
+>    // Código
+>}
+>// Continuación del código
+>```
+>En MIPS se haría de la siguiente forma
+> ```
+> li $t0, 0  # i = 0, inicialización
+>
+> Loop:
+>
+>   slt $t1, $t0, 10  # Si i < 10, $t1 = 1; de lo contrario, $t1 = 0
+>   beq $t1, $zero, End  # Si $t1 == 0 (es decir, i >= 10), salta a End
+>   # Recordemos que lo anterior es equivalente a saltar si i >= 10   
+>
+>   # Código
+>
+>   addi $t0, $t0, 1  # i++, incremento
+>   j Loop
+>
+> End:
+>   # Continuación del código
+> ```
+
+> [!TIP]
+> En el ejemplo anterior, se inicializa el contador `i` en `0` con `li $t0, 0`.
+> Luego, se compara si `i < 10` con `slt $t1, $t0, 10`.
+> Si `i < 10`, se ejecuta el código y se incrementa `i` con `addi $t0, $t0, 1`.
+> Si `i >= 10`, se salta a `End` con `beq $t1, $zero, End`.
+
+
+
