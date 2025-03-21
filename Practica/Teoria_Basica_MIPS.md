@@ -373,8 +373,6 @@
 >
 >   # Código si $t1 == $t2
 >
->   j L2
->
 > L2:
 >
 > # Continuación del código
@@ -477,7 +475,7 @@
 > ```
 
 ### For 
-> [!REMINDER]
+> [!TIP]
 >Recordemos que un bucle for en Java se puede representar como un bucle while.
 >Por ejemplo, el siguiente bucle for en Java:
 >```java
