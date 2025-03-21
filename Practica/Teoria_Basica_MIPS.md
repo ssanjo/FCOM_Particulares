@@ -517,7 +517,8 @@
 >
 >   # Código
 >
->   addi $t0, $t0, 1  # i++, incremento
+>   addi $t0, $t0, 1
+>   # i++, incremento
 >
 >j Loop
 >
@@ -532,5 +533,26 @@
 > Si `i < 10`, se ejecuta el código y se incrementa `i` con `addi $t0, $t0, 1`.
 > Si `i >= 10`, se salta a `End` con `beq $t1, $zero, End`.
 
+## Vectores
 
+### Declaración de vectores
 
+> [!NOTE]
+> Para declarar un vector en MIPS, se utiliza la sección .data del programa:
+> ``` 
+> .data  
+>   # Vector de 10 enteros inicializado con ceros
+>   vector1: .word 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+>     
+>   # Vector de 5 enteros con valores específicos
+>   vector2: .word 10, 20, 30, 40, 50
+>   
+>   # Vector de 100 enteros sin inicializar
+>   vector3: .space 400    # 100 elementos * 4 bytes por palabra = 400 bytes
+>   
+>   # Vector de caracteres (cadena)
+>   mensaje: .asciiz "Hola Mundo"
+> ```
+> .word: Reserva espacio para enteros (4 bytes cada uno).  
+> .space: Reserva un número específico de bytes en memoria.  
+> .asciiz: Define una cadena de caracteres terminada en el carácter nulo.
