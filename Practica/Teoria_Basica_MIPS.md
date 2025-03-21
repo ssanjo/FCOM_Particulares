@@ -364,7 +364,7 @@
 >// Continuación del código
 >```
 >En MIPS se haría de la siguiente forma 
->```asm
+>```
 > beq $t1, $t2, L1  # Si $t1 == $t2 salta a L1
 >
 >   # Código si $t1 == $t2
@@ -388,7 +388,7 @@
 >// Continuación del código
 >```
 >En MIPS se haría de la siguiente forma
->```asm
+>```
 > beq $t1, $t2, L1  # Si $t1 == $t2 salta a L1
 >
 >   # Código si $t1 == $t2
@@ -415,7 +415,7 @@
 > // Continuación del código
 > ```
 > En MIPS se haría de la siguiente forma:
-> ```asm
+> ```
 > slt $t0, $t1, $t2  # Si $t1 < $t2, $t0 = 1; de lo contrario, $t0 = 0
 > beq $t0, $zero, L1  # Si $t0 == 0 (es decir, $t1 >= $t2), salta a L1
 >
@@ -430,7 +430,7 @@
 > 
 
 > [!IMPORTANT]
-> ```
+> ```asm
 > slt $t0, $t1, $t2  
 > beq $t0, $zero, L1 
 > ```
