@@ -350,6 +350,9 @@
 > jalr $t1, $ra
 > ```
 
+
+
+
 ---
 ## Saltos y bucles
 
@@ -365,12 +368,15 @@
 >```
 >En MIPS se haría de la siguiente forma 
 >```
-> beq $t1, $t2, L1  # Si $t1 == $t2 salta a L1
+> beq $t1, $t2, L1  
+># Si $t1 == $t2 salta a L1
 >
 >   # Código si $t1 == $t2
+>
 >   j L2
 >
 > L2:
+>
 > # Continuación del código
 >```
 >
@@ -389,9 +395,11 @@
 >```
 >En MIPS se haría de la siguiente forma
 >```
-> beq $t1, $t2, L1  # Si $t1 == $t2 salta a L1
+> beq $t1, $t2, L1  
+># Si $t1 == $t2 salta a L1
 >
 >   # Código si $t1 == $t2
+>
 >   j L2
 >
 > L1:
@@ -399,6 +407,7 @@
 >   # Código si $t1 != $t2
 >
 > L2:
+>
 > # Continuación del código
 >```
 
@@ -416,16 +425,22 @@
 > ```
 > En MIPS se haría de la siguiente forma:
 > ```
-> slt $t0, $t1, $t2  # Si $t1 < $t2, $t0 = 1; de lo contrario, $t0 = 0
-> beq $t0, $zero, L1  # Si $t0 == 0 (es decir, $t1 >= $t2), salta a L1
+> slt $t0, $t1, $t2 
+> # Si $t1 < $t2, $t0 = 1; de lo contrario, $t0 = 0
+>
+> beq $t0, $zero, L1 
+> # Si $t0 == 0 (es decir, $t1 >= $t2), salta a L1
 >
 >   # Código si $t1 < $t2
+>
 >   j L2
 >
 > L1:
+>
 >   # Código si $t1 >= $t2
 >
 > L2:
+>
 > # Continuación del código
 > 
 
@@ -448,13 +463,17 @@
 >En MIPS se haría de la siguiente forma
 > ```
 > Loop:
->   beq $t1, $t2, End  # Si $t1 == $t2, salta a End
+>
+> beq $t1, $t2, End
+> # Si $t1 == $t2, salta a End
 >
 >   # Código si $t1 == $t2
->   j Loop
+>
+> j Loop
 >
 > End:
->   # Continuación del código
+>
+> # Continuación del código
 > ```
 
 ### For 
@@ -491,17 +510,22 @@
 >
 > Loop:
 >
->   slt $t1, $t0, 10  # Si i < 10, $t1 = 1; de lo contrario, $t1 = 0
->   beq $t1, $zero, End  # Si $t1 == 0 (es decir, i >= 10), salta a End
->   # Recordemos que lo anterior es equivalente a saltar si i >= 10   
+> slt $t1, $t0, 10 
+> # Si i < 10, $t1 = 1; de lo contrario, $t1 = 0
+>
+> beq $t1, $zero, End  
+> # Si $t1 == 0 (es decir, i >= 10), salta a End
+> # Recordemos que lo anterior es equivalente a saltar si i >= 10   
 >
 >   # Código
 >
 >   addi $t0, $t0, 1  # i++, incremento
->   j Loop
+>
+>j Loop
 >
 > End:
->   # Continuación del código
+>
+> # Continuación del código
 > ```
 
 > [!TIP]
