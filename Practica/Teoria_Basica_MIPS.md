@@ -1,5 +1,5 @@
 
-(creado por danii47 : https://github.com/Danii47/FCOM )
+(creado por danii47 : https://github.com/Danii47/FCOM , editado ssanjo )
 
 # HOJA DE REFERENCIA MIPS
 
@@ -11,6 +11,7 @@
 - [Funciones de entrada/salida (Syscall)](#funciones-de-entradasalida-syscall)
 - [Instrucciones](#instrucciones)
 - [Ejemplos de instrucciones](#ejemplos-de-instrucciones)
+- [Saltos y bucles](#saltos-y-bucles)
 
 ---
 
@@ -58,7 +59,6 @@
 ---
 
 ## Instrucciones
-
 | Instrucción | Parámetros | Descripción | Ejemplo |
 | - | - | - | - |
 | la | rd, Etiqueta | Carga la dirección representada por Etiqueta en el registro rd | la $s0, A |
@@ -73,6 +73,8 @@
 | sll | rd, rt, d | Desplaza a la izquierda el contenido de rt d veces y lo almacena en rd | sll $t2, $t1, 2 |
 | slt | rd, rs, rt | Establece rd en 1 si rs < rt, de lo contrario, establece rd en 0 | slt $t2, $t1, $t0 |
 | slti | rd, rs, inm | Establece rd en 1 si rs < inm (con signo extendido), de lo contrario, establece rd en 0 | slti $t2, $t1, 5 |
+| sgt | rd, rs, rt | Establece rd en 1 si rs > rt, de lo contrario, establece rd en 0 | sgt $t2, $t1, $t0 |
+| sgti | rd, rs, inm | Establece rd en 1 si rs > inm (con signo extendido), de lo contrario, establece rd en 0 | sgti $t2, $t1, 5 |
 | beq | rs, rt, Etiqueta | Salta a la instrucción en la dirección de memoria representada por Etiqueta si rs == rt | beq $t1, $t2, L1 |
 | bne | rs, rt, Etiqueta | Salta a la instrucción en la dirección de memoria representada por Etiqueta si rs != rt | bne $t1, $t2, L1 |
 | ble | rs, rt, Etiqueta | Salta a la instrucción en la dirección de memoria representada por Etiqueta si rs <= rt | ble $t1, $t2, L1 |
@@ -348,3 +350,97 @@
 > jalr $t1, $ra
 > ```
 
+---
+## Saltos y bucles
+
+
+### If 
+> [!NOTE]
+>Si se quiere hacer un if como el siguiente en Java
+>```java
+>if (a == b) {
+>    // Código si a == b
+>}
+>// Continuación del código
+>```
+>En MIPS se haría de la siguiente forma 
+>```asm
+> beq $t1, $t2, L1  # Si $t1 == $t2 salta a L1
+>
+>   # Código si $t1 == $t2
+>   j L2
+>
+> L2:
+> # Continuación del código
+>```
+>
+
+### If-Else
+<!--- añade aqui el resto de if else--->
+> [!NOTE]
+>Si se quiere hacer un if-else como el siguiente en Java
+>```java
+>if (a == b) {
+>    // Código si a == b
+>} else {
+>    // Código si a != b
+>}
+>// Continuación del código
+>```
+>En MIPS se haría de la siguiente forma
+>```asm
+> beq $t1, $t2, L1  # Si $t1 == $t2 salta a L1
+>
+>   # Código si $t1 == $t2
+>   j L2
+>
+> L1:
+>
+>   # Código si $t1 != $t2
+>
+> L2:
+> # Continuación del código
+>```
+
+### If-Else con otra condición
+
+> [!NOTE]
+> Si se quiere hacer un if-else con otra condicion el siguiente en Java:
+> ```java
+> if (a < b) {
+>     // Código si a < b
+> } else {
+>     // Código si a >= b
+> }
+> // Continuación del código
+> ```
+> En MIPS se haría de la siguiente forma:
+> ```asm
+> slt $t0, $t1, $t2  # Si $t1 < $t2, $t0 = 1; de lo contrario, $t0 = 0
+> beq $t0, $zero, L1  # Si $t0 == 0 (es decir, $t1 >= $t2), salta a L1
+>
+>   # Código si $t1 < $t2
+>   j L2
+>
+> L1:
+>   # Código si $t1 >= $t2
+>
+> L2:
+> # Continuación del código
+> 
+
+> [!IMPORTANT]
+> ```asm
+> slt $t0, $t1, $t2  
+> beq $t0, $zero, L1 
+> ```
+> En estas dos lineas se esta comparando si $t1 es menor que $t2, si es asi se salta a L1, si no se sigue con el codigo.
+### While
+> [!NOTE]
+>Si se quiere hacer un while como el siguiente en Java
+>```java
+>while (a == b) {
+>    // Código si a == b
+>}
+>```
+>En MIPS se haría de la siguiente forma
