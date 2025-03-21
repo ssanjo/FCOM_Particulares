@@ -405,7 +405,7 @@
 ### If-Else con otra condición
 
 > [!NOTE]
-> Si se quiere hacer un if-else con otra condicion el siguiente en Java:
+> Si se quiere hacer un if-else con otra condicion como la siguiente en Java:
 > ```java
 > if (a < b) {
 >     // Código si a < b
@@ -430,11 +430,12 @@
 > 
 
 > [!IMPORTANT]
-> ```asm
+> ```
 > slt $t0, $t1, $t2  
 > beq $t0, $zero, L1 
 > ```
 > En estas dos lineas se esta comparando si $t1 es menor que $t2, si es asi se salta a L1, si no se sigue con el codigo.
+
 ### While
 > [!NOTE]
 >Si se quiere hacer un while como el siguiente en Java
