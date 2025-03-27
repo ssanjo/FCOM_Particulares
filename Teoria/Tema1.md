@@ -192,29 +192,29 @@ $R_{relativo} = \frac{T_{CPU2}}{T_{CPU1}}$ = $\frac{Rendimiento_{CPU2}}{Rendimie
 
 ### Fórmulas
 
-$$
-T_{CPU} = N\times T_{ciclo}
-$$
-
-$$
-t_{CPU} = \frac{Instrucciones}{Programa} \times \frac{Ciclos}{Instruccion} \times \frac{Tiempo}{Ciclo}
-$$
-
-$$
-t_{CPU} = Ic \times CPI \times T_{ciclo}
-$$
-
-$$
-Rendimiento = \frac{1}{t_{CPU}}
-$$
-
-$$
-R_{relativo} = \frac{T_{CPU2}}{T_{CPU1}} = \frac{Rendimiento_{CPU2}}{Rendimiento_{CPU1}}
-$$
-
-$$
-N = Ic \times CPI
-$$
+>$$
+>T_{CPU} = N\times T_{ciclo}
+>$$
+>
+>$$
+>t_{CPU} = \frac{Instrucciones}{Programa} \times \frac{Ciclos}>{Instruccion} \times \frac{Tiempo}{Ciclo}
+>$$
+>
+>$$
+>t_{CPU} = Ic \times CPI \times T_{ciclo}
+>$$
+>
+>$$
+>Rendimiento = \frac{1}{t_{CPU}}
+>$$
+>
+>$$
+>R_{relativo} = \frac{T_{CPU2}}{T_{CPU1}} = \frac{Rendimiento_>{CPU2}}{Rendimiento_{CPU1}}
+>$$
+>
+>$$
+>N = Ic \times CPI
+>$$
 
 
 
