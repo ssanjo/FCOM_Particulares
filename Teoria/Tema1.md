@@ -22,35 +22,34 @@
   - [4. La Era Post-PC](#4-la-era-post-pc)
   - [5. Niveles de Abstracción](#5-niveles-de-abstracción)
     - [División del Sistema Informático](#división-del-sistema-informático)
-  - [6. Memoria Principal, Acceso, Elementos y Funcionamiento](#6-memoria-principal-acceso-elementos-y-funcionamiento)
+  - [6. Memoria Principal](#6-memoria-principal)
     - [Tipos de Memoria](#tipos-de-memoria)
     - [Acceso a Memoria](#acceso-a-memoria)
     - [Elementos de la Memoria](#elementos-de-la-memoria)
+    - [Funcionamiento de lectura](#funcionamiento-de-lectura)
+    - [Funcionamiento de escritura](#funcionamiento-de-escritura)
   - [7. Funcionamiento del Computador, Ejecución de una Instrucción y Arquitectura del CPU](#7-funcionamiento-del-computador-ejecución-de-una-instrucción-y-arquitectura-del-cpu)
     - [Etapas de Ejecución de una Instrucción](#etapas-de-ejecución-de-una-instrucción)
     - [Componentes del CPU](#componentes-del-cpu)
-  - [8. Factores de Rendimiento, Productividad, Rendimiento Relativo y Medida del Tiempo de Ejecución](#8-factores-de-rendimiento-productividad-rendimiento-relativo-y-medida-del-tiempo-de-ejecución)
-    - [Factores de Rendimiento](#factores-de-rendimiento)
-    - [Fórmula del Tiempo de Ejecución](#fórmula-del-tiempo-de-ejecución)
-  - [9. Temporización de la CPU, Tiempo de CPU, Número de Instrucciones y CPI](#9-temporización-de-la-cpu-tiempo-de-cpu-número-de-instrucciones-y-cpi)
-    - [Temporización](#temporización)
-- [Tecnología Informática y Niveles de Abstracción](#tecnología-informática-y-niveles-de-abstracción-1)
-  - [10. Potencia Dinámica y Estática, Reducción de Potencia](#10-potencia-dinámica-y-estática-reducción-de-potencia)
+  - [8. Rendimiento y sus expresiones](#8-rendimiento-y-sus-expresiones)
+    - [Definiciones](#definiciones)
+    - [Fórmulas](#fórmulas)
+  - [9. Potencia](#9-potencia)
     - [Potencia Dinámica](#potencia-dinámica)
     - [Potencia Estática](#potencia-estática)
       - [Métodos de Reducción de Potencia Estática:](#métodos-de-reducción-de-potencia-estática)
-  - [11. Multiprocesadores, Aceleración y Eficiencia](#11-multiprocesadores-aceleración-y-eficiencia)
-    - [Multiprocesadores y Paralelismo](#multiprocesadores-y-paralelismo)
-    - [Aceleración y Eficiencia](#aceleración-y-eficiencia)
-  - [12. Tipos de Binario](#12-tipos-de-binario)
-    - [Binario Natural](#binario-natural)
+  - [10. Aceleración y Eficiencia](#10-aceleración-y-eficiencia)
+    - [Aceleración (Speedup)](#aceleración-speedup)
+    - [Eficiencia](#eficiencia)
+  - [11. Tipos de Binario](#11-tipos-de-binario)
+    - [Binario Natural (sin signo)](#binario-natural-sin-signo)
+    - [Binario con Signo](#binario-con-signo)
     - [Complemento a 2](#complemento-a-2)
-  - [13. Hexadecimal, Caracteres y ASCII](#13-hexadecimal-caracteres-y-ascii)
+  - [12. Hexadecimal, Caracteres y ASCII](#12-hexadecimal-caracteres-y-ascii)
     - [Sistema Hexadecimal](#sistema-hexadecimal)
     - [Representación de Caracteres](#representación-de-caracteres)
       - [Código ASCII](#código-ascii)
       - [Unicode](#unicode)
-  - [14. Conclusiones](#14-conclusiones)
 
 
 
@@ -127,7 +126,7 @@ La mejora continua del hardware ha permitido aumentar la eficiencia en relación
    - Procesadores, memoria y dispositivos de entrada/salida.
    - Interfaz entre software y hardware mediante la arquitectura del repertorio de instrucciones (ISA).
 
-## 6. Memoria Principal, Acceso, Elementos y Funcionamiento
+## 6. Memoria Principal
 ### Tipos de Memoria
 - **Memoria RAM (Random Access Memory)**: Volátil, utilizada para almacenar datos y programas en ejecución.
 - **Memoria ROM (Read-Only Memory)**: No volátil, almacena firmware y datos permanentes.
@@ -140,6 +139,21 @@ La mejora continua del hardware ha permitido aumentar la eficiencia en relación
 - **Celdas de Memoria**: Almacenan datos en forma binaria.
 - **Bus de Datos**: Transporta la información entre memoria y CPU.
 - **Bus de Direcciones**: Indica la posición de memoria que se desea acceder.
+  
+### Funcionamiento de lectura
+1. **Dirección**: Se envía la dirección de memoria a la que se desea acceder.
+2. **Selección**: Se activa la celda de memoria correspondiente.
+3. **Lectura**: Se lee el contenido de la celda y se envía a la CPU.
+
+### Funcionamiento de escritura
+1. **Dirección**: Se envía la dirección de memoria a la que se desea acceder.
+2. **Selección**: Se activa la celda de memoria correspondiente.
+3. **Escritura**: Se escribe el contenido en la celda de memoria.
+  
+>[!TIP]
+>El funcionamiento de lectura y escritura es completamente analogo, la diferencia radica en la operación que se realiza en la celda de memoria.
+>
+>
 
 ## 7. Funcionamiento del Computador, Ejecución de una Instrucción y Arquitectura del CPU
 ### Etapas de Ejecución de una Instrucción
@@ -154,29 +168,62 @@ La mejora continua del hardware ha permitido aumentar la eficiencia en relación
 - **Registros**: Almacenan temporalmente datos.
 - **Memoria Caché**: Acceso rápido a datos e instrucciones frecuentes.
 
-## 8. Factores de Rendimiento, Productividad, Rendimiento Relativo y Medida del Tiempo de Ejecución
-### Factores de Rendimiento
-- **CPI (Ciclos por Instrucción)**: Relación entre ciclos de reloj y cantidad de instrucciones ejecutadas.
-- **Frecuencia del reloj**: Determina la rapidez del procesador.
+## 8. Rendimiento y sus expresiones
+### Definiciones
+- **Tiempo de respuesta**: Tiempo que tarda un programa en ejecutarse.
+- **Productividad**: Relación entre el tiempo de respuesta y el tiempo de CPU.
+- **Rendimiento** = 1 / Tiempo de respuesta.
+- **Rendimiento relativo**: Comparación del rendimiento de dos sistemas:  
+$R_{relativo} = \frac{T_{CPU2}}{T_{CPU1}}$ = $\frac{Rendimiento_{CPU2}}{Rendimiento_{CPU1}}$  
+"CPU1 es $R_{relativo}$ veces más rápido que CPU2"
 
-### Fórmula del Tiempo de Ejecución
+- **Tiempo Invertido**: Tiempo de respuesta total, incluyendo el de procesamiento de CPU, operaciones de E/S y tareas del Sistema OperativoTiempo de CPU
+- **Tiempo de CPU (t)**:  Tiempo consumido procesando una determinada tarea, se descuenta E/S y otras tareas con recursos compartidos.
+  
+- **Periodo de reloj (T)**: Tiempo entre dos pulsos consecutivos, duracion de un ciclo.
+  
+- **Frecuencia de reloj (f)**: 1 / T , ciclos por segundo.
+
+- **Ciclos por Instrucción (CPI)**: Relación entre ciclos de reloj y cantidad de instrucciones ejecutadas.
+
+- **Numero de ciclos (N)**: Cantidad de ciclos necesarios para ejecutar un programa.
+  
+- **Numero de Instrucciones (Ic)**: Cantidad de instrucciones ejecutadas en un programa.
+
+### Fórmulas
+
 $$
-T_{CPU} = N \times CPI \times T_{ciclo}
+T_{CPU} = N\times T_{ciclo}
 $$
 
-## 9. Temporización de la CPU, Tiempo de CPU, Número de Instrucciones y CPI
-### Temporización
-- **Periodo de reloj**: Tiempo entre dos pulsos consecutivos.
-- **Frecuencia de reloj**: Inverso del periodo, medida en GHz.
+$$
+t_{CPU} = \frac{Instrucciones}{Programa} \times \frac{Ciclos}{Instruccion} \times \frac{Tiempo}{Ciclo}
+$$
 
-# Tecnología Informática y Niveles de Abstracción
+$$
+t_{CPU} = Ic \times CPI \times T_{ciclo}
+$$
 
-## 10. Potencia Dinámica y Estática, Reducción de Potencia
+$$
+Rendimiento = \frac{1}{t_{CPU}}
+$$
+
+$$
+R_{relativo} = \frac{T_{CPU2}}{T_{CPU1}} = \frac{Rendimiento_{CPU2}}{Rendimiento_{CPU1}}
+$$
+
+$$
+N = Ic \times CPI
+$$
+
+
+
+## 9. Potencia 
 ### Potencia Dinámica
 La potencia dinámica es la energía consumida por el procesador cuando ejecuta instrucciones y cambia de estado. Se calcula con la siguiente fórmula:
 
 $$
-P_{dinámica} = C_{load} \times V^2 \times f
+W_{dinámica} = C_{load} \times V^2 \times f
 $$
 
 donde:
@@ -192,50 +239,48 @@ Para reducir la potencia dinámica, se pueden emplear las siguientes estrategias
 ### Potencia Estática
 La potencia estática es la energía consumida incluso cuando el procesador no está ejecutando instrucciones. Proviene de las corrientes de fuga en los transistores. Su fórmula es:
 
-\[
-P_{estática} = I_{fuga} \times V
-\]
+$$
+W_{estática} = I_{fuga} \times V
+$$
 
 donde:
-- \( I_{fuga} \) es la corriente de fuga de los transistores.
-- \( V \) es el voltaje de operación.
+- $I_{fuga}$ es la corriente de fuga de los transistores.
+- $V$ es el voltaje de operación.
 
 #### Métodos de Reducción de Potencia Estática:
 - **Uso de transistores de bajo consumo**: Reduce la corriente de fuga.
 - **Técnicas de apagado de componentes (power gating)**: Desactiva partes del chip cuando no se están usando.
 - **Reducción del voltaje de operación**: Minimiza las fugas de corriente.
 
-## 11. Multiprocesadores, Aceleración y Eficiencia
-### Multiprocesadores y Paralelismo
-Los multiprocesadores contienen múltiples núcleos en un solo chip, lo que permite la ejecución simultánea de múltiples hilos de procesamiento.
+## 10. Aceleración y Eficiencia
+### Aceleración (Speedup)
+La aceleración o speedup es una medida que cuantifica cuánto más rápido se ejecuta un programa en múltiples procesadores comparado con un solo procesador.
 
-Tipos de paralelismo:
-- **Paralelismo a nivel de instrucciones (ILP)**: Se ejecutan varias instrucciones en un solo ciclo de reloj.
-- **Paralelismo a nivel de hilos (TLP)**: Se ejecutan varios hilos en diferentes núcleos.
-- **Paralelismo a nivel de datos (DLP)**: Se procesan múltiples datos simultáneamente, como en SIMD (Single Instruction, Multiple Data).
-
-### Aceleración y Eficiencia
-- **Aceleración (Speedup)**: Medida del incremento de rendimiento al usar múltiples núcleos. Se calcula con la Ley de Amdahl:
-
-\[
-Speedup = \frac{1}{(1 - P) + \frac{P}{N}}
-\]
+$$ S(N) = \frac{t_1}{t_N} $$
 
 donde:
-- \( P \) es la fracción del programa que se puede paralelizar.
-- \( N \) es el número de procesadores.
 
-- **Eficiencia**: Relación entre el rendimiento obtenido y los recursos utilizados.
-- **Problemas del paralelismo**:
-  - Sincronización entre hilos.
-  - Balance de carga.
-  - Comunicación entre núcleos.
+$T_1$ es el tiempo de ejecución en un solo procesador
+$t_N$ es el tiempo de ejecución en N procesadores
 
-## 12. Tipos de Binario
-### Binario Natural
+### Eficiencia
+La eficiencia mide qué tan bien se están utilizando los recursos disponibles:
+
+$$ E(N) = \frac{S(N)}{N} = \frac{t_1}{N \times t_N} $$
+
+
+
+## 11. Tipos de Binario
+### Binario Natural (sin signo)
 El binario natural es el sistema numérico base de los computadores. Se representa con 0s y 1s.
 - Ejemplo:
   - 1011₂ = 1×2³ + 0×2² + 1×2¹ + 1×2⁰ = 11₁₀
+
+### Binario con Signo 
+Se utiliza para representar números positivos y negativos. El bit más significativo indica el signo (0 para positivo, 1 para negativo).
+- Ejemplo:
+  - 4 en binario de 8 bits: 00000100₂
+  - -4 en binario de 8 bits: 10000100₂
 
 ### Complemento a 2
 Es el método más común para representar números con signo en binario. Su ventaja es que permite realizar sumas y restas sin necesidad de reglas especiales.
@@ -248,7 +293,7 @@ Es el método más común para representar números con signo en binario. Su ven
 1. Invertir los bits.
 2. Sumar 1 al resultado.
 
-## 13. Hexadecimal, Caracteres y ASCII
+## 12. Hexadecimal, Caracteres y ASCII
 ### Sistema Hexadecimal
 Es un sistema de numeración en base 16 utilizado para representar grandes cantidades de información de forma compacta.
 
@@ -273,8 +318,3 @@ ASCII (American Standard Code for Information Interchange) es un estándar de co
 #### Unicode
 Unicode amplía ASCII y permite la representación de caracteres de múltiples alfabetos, con variantes como UTF-8 y UTF-16.
 
-## 14. Conclusiones
-- La evolución de la informática ha mejorado la eficiencia y capacidad de los sistemas computacionales.
-- La arquitectura de Von Neumann sigue siendo un modelo central en el diseño de computadores modernos.
-- La optimización del rendimiento depende de múltiples factores, desde hardware hasta algoritmos de software.
-- El uso de multiprocesadores y técnicas de paralelismo es clave para mejorar la eficiencia y el rendimiento.
