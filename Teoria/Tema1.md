@@ -197,7 +197,7 @@ $R_{relativo} = \frac{T_{CPU2}}{T_{CPU1}}$ = $\frac{Rendimiento_{CPU2}}{Rendimie
 >$$
 >
 >$$
->t_{CPU} = \frac{Instrucciones}{Programa} \times \frac{Ciclos}>{Instruccion} \times \frac{Tiempo}{Ciclo}
+>t_{CPU} = \frac{Instrucciones}{Programa} \times \frac{Ciclos}{Instruccion} \times \frac{Tiempo}{Ciclo}        
 >$$
 >
 >$$
@@ -209,7 +209,7 @@ $R_{relativo} = \frac{T_{CPU2}}{T_{CPU1}}$ = $\frac{Rendimiento_{CPU2}}{Rendimie
 >$$
 >
 >$$
->R_{relativo} = \frac{T_{CPU2}}{T_{CPU1}} = \frac{Rendimiento_>{CPU2}}{Rendimiento_{CPU1}}
+>R_{relativo} = \frac{T_{CPU2}}{T_{CPU1}} = \frac{Rendimiento_{CPU2}}{Rendimiento_{CPU1}}
 >$$
 >
 >$$
