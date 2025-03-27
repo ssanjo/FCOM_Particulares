@@ -191,7 +191,7 @@ $R_{relativo} = \frac{T_{CPU2}}{T_{CPU1}}$ = $\frac{Rendimiento_{CPU2}}{Rendimie
 - **Numero de Instrucciones (Ic)**: Cantidad de instrucciones ejecutadas en un programa.
 
 ### Fórmulas
-
+>[!NOTE]
 >$$
 >T_{CPU} = N\times T_{ciclo}
 >$$
